@@ -36,7 +36,6 @@ body {
 .geolocalisation input {
   background: transparent;
   border: none;
-  text-decoration-color: black;
 }
 
 .geolocalisation ::placeholder {
@@ -109,6 +108,16 @@ body {
     rgba(212, 46, 212, 0.9)
   );
   box-shadow: 2px 1px 7px 0px grey;
+  cursor: pointer;
+}
+
+.exploration button:hover {
+  background-image: linear-gradient(
+    to top,
+    rgba(219, 174, 245, 0.9),
+    rgba(251, 158, 251, 0.9)
+  );
+  box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
 }
 
 #Fonctionnement {
@@ -122,20 +131,18 @@ body {
   padding-left: 20px;
 }
 
-#Fonctionnement a {
-  text-decoration: none;
-  color: black;
-}
 
-.Choisir a,
-.Composer a,
-.Deguster a {
+
+#Fonctionnement a
+ {
   display: flex;
   align-items: center;
   text-align: center;
   gap: 35px;
   height: 60px;
   width: 90%;
+  text-decoration: none;
+  color: black;
   margin-left: 25px;
   margin-bottom: 20px;
   background-color: rgb(249, 249, 249);
@@ -144,9 +151,7 @@ body {
   box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
 }
 
-.Choisir p,
-.Composer p,
-.Deguster p {
+#Fonctionnement p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -296,4 +301,63 @@ footer div {
   padding-left: 5px;
   align-items: center;
   gap: 10px;
+}
+
+/* Version tablette */
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  /* IMPACTS A GARDER */
+
+.logo {
+    border: 1px solid blue;
+}
+
+/* Centrage bloc geolocalisation */
+.geoglobal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exploration p{
+  width: 50%;
+}
+
+#Fonctionnement {
+  display: flex;
+  
+
+align-items: center;
+  border: 1px solid black;
+}
+
+#Fonctionnement div {
+display: flex;
+justify-content: center;
+width: 100%;
+  border: 1px solid blue;
+}
+
+#Fonctionnement h3 {
+  display: inline-block;
+  flex-direction: row;
+  flex-direction: row;
+  padding-bottom: 200px;
+}
+
+#Fonctionnement a{
+  display: flex;
+  flex-direction: column;
+ justify-content: center;
+ align-items: center;
+  width: 30%;
+  text-decoration: none;
+  color: black;
+  margin-left: 25px;
+  margin-bottom: 20px;
+  background-color: rgb(249, 249, 249);
+  border-radius: 15px 15px;
+  position: relative;
+  box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
+  border: 1px solid red;
 }
