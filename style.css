@@ -215,7 +215,6 @@ body {
   flex-direction: column;
   background-color: white;
   width: 90%;
-
   box-shadow: 3px 3px 3px 3px rgb(216, 215, 215);
   border-radius: 20px;
   margin-bottom: 20px;
@@ -456,4 +455,145 @@ footer div {
     padding-left: 30px;
     padding-bottom: 0;
   }
+}
+
+/* css des menus version mobile*/
+
+.logomenu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 5px;
+  padding-top: 20px;
+
+  box-shadow: none;
+}
+
+.logomenu img {
+  width: 40%;
+}
+
+.photomenu img {
+  display: flex;
+  object-fit: cover;
+  margin-top: 20px;
+  height: 300px;
+  width: 100%;
+}
+nav menu {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  position: relative;
+}
+nav button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  display: flex;
+  margin-top: 25px;
+  margin-left: 40px;
+  background-color: white;
+  border: none;
+}
+
+nav menu {
+  display: flex;
+  height: 50px;
+}
+
+nav i {
+  display: flex;
+  font-size: large;
+}
+
+#descriglobalmenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(249, 249, 249);
+}
+
+#descriglobalmenu h2 {
+  font-family: Shrikhand;
+}
+
+.titrecoeur {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-size: large;
+}
+.titrecoeur h2 {
+  margin-right: 100px;
+}
+
+.titrecoeur i {
+  font-size: x-large;
+  margin-right: 25px;
+}
+
+#Entreeglobal h3,
+#Platglobal h3 {
+  font-family: Roboto;
+  margin-left: 35px;
+  margin-bottom: 40px;
+  color: gray;
+}
+
+.troisentrees,
+.troisplats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.entree1,
+.entree2,
+.entree3,
+.plat1,
+.plat2,
+.plat3 {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  font-family: roboto;
+  width: 90%;
+  border: 1px solid transparent;
+  border-radius: 20px 20px;
+}
+
+.descrientree,
+.descriplat {
+  display: flex;
+  flex-direction: column;
+}
+
+.descrientree h4,
+.descriplat h4 {
+  display: flex;
+  margin-bottom: 5px;
+  font-size: large;
+}
+
+.descrientree p,
+.descriplat p {
+  display: flex;
+  margin-top: 0;
+  color: rgb(92, 92, 92);
+}
+
+.prixentree,
+.prixplat {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 15px;
+  margin-right: 30px;
 }
