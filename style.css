@@ -85,7 +85,6 @@ body {
 }
 
 .exploration p {
-  display: flex;
   width: 60%;
   margin-top: 0px;
   font-family: roboto;
@@ -131,8 +130,7 @@ body {
   padding-left: 20px;
 }
 
-#Fonctionnement a
- {
+#Fonctionnement a {
   display: flex;
   align-items: center;
   text-align: center;
@@ -149,10 +147,9 @@ body {
   box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
 }
 
-#Fonctionnement a:hover{
-background-color: rgb(226, 235, 250);
+#Fonctionnement a:hover {
+  background-color: rgb(226, 235, 250);
 }
- 
 
 #Fonctionnement p {
   display: flex;
@@ -169,14 +166,13 @@ background-color: rgb(226, 235, 250);
   border-radius: 100% 100% 100% 100%;
 }
 
-#Fonctionnement i
- {
+#Fonctionnement i {
   padding-left: 40px;
   display: flex;
   color: gray;
 }
 
-#Fonctionnement i:hover{
+#Fonctionnement i:hover {
   color: #9356dc;
 }
 
@@ -187,6 +183,9 @@ background-color: rgb(226, 235, 250);
 }
 
 #Restaurants {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: rgb(240, 239, 239);
   padding-top: 5px;
   padding-bottom: 25px;
@@ -202,6 +201,8 @@ background-color: rgb(226, 235, 250);
 }
 
 #Restaurants a {
+  display: flex;
+  justify-content: center;
   text-decoration: none;
   color: black;
 }
@@ -214,7 +215,7 @@ background-color: rgb(226, 235, 250);
   flex-direction: column;
   background-color: white;
   width: 90%;
-  margin-left: 24px;
+
   box-shadow: 3px 3px 3px 3px rgb(216, 215, 215);
   border-radius: 20px;
   margin-bottom: 20px;
@@ -312,76 +313,147 @@ footer div {
 @media screen and (min-width: 769px) and (max-width: 991px) {
   /* IMPACTS A GARDER */
 
-.logo {
-    border: 1px solid blue;
+  /* Centrage bloc geolocalisation */
+  .geoglobal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .exploration p {
+    width: 50%;
+  }
+
+  #Fonctionnement {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+  }
+
+  #Fonctionnement div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #Fonctionnement a {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    background-color: rgb(249, 249, 249);
+    border-radius: 15px 15px;
+    position: relative;
+    box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
+  }
+
+  #Fonctionnement p {
+    left: 45%;
+    bottom: 38px;
+    height: 25px;
+    width: 25px;
+  }
+
+  #Fonctionnement i {
+    padding-left: 10px;
+  }
+
+  #Fonctionnement h4 {
+    padding-right: 12px;
+  }
+
+  #Restaurants {
+    flex-direction: row;
+    gap: 10px;
+
+    padding-bottom: 50px;
+  }
+
+  #Restaurants a {
+    width: 50%;
+  }
+
+  .bloc1,
+  .bloc2 {
+    display: flex;
+  }
 }
 
-/* Centrage bloc geolocalisation */
-.geoglobal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Version desktop */
 
-.exploration p{
-  width: 50%;
-}
+@media screen and (min-width: 992px) {
+  /* IMPACTS A GARDER */
 
-#Fonctionnement {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 50px;
-}
+  .geoglobal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-#Fonctionnement div {
-display: flex;
-justify-content: space-evenly;
-width: 100%;
+  .exploration p {
+    width: 50%;
+  }
 
-}
+  #Fonctionnement {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+  }
 
-#Fonctionnement a{
-  display: flex;
-  justify-content: space-around;
-  gap: 0;
-  width: 90%;
-  margin-left: 0px;
-  margin-bottom: 0px;
-  text-decoration: none;
-  background-color: rgb(249, 249, 249);
-  border-radius: 15px 15px;
-  position: relative;
-  box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
-}
+  #Fonctionnement div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
 
-#Fonctionnement p {
-  
-  left: 45%;
-  bottom: 38px;
-  height: 25px;
-  width: 25px;
-}
+  #Fonctionnement a {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0;
+    width: 90%;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    text-decoration: none;
+    background-color: rgb(249, 249, 249);
+    border-radius: 15px 15px;
+    position: relative;
+    box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
+  }
 
-#Fonctionnement i
- {padding-left: 10px;
-}
+  #Fonctionnement p {
+    left: 45%;
+    bottom: 38px;
+    height: 25px;
+    width: 25px;
+  }
 
-#Fonctionnement h4 {
-  padding-right: 12px;
-}
+  #Fonctionnement i {
+    padding-left: 10px;
+  }
 
-#Restaurants{
- 
-  flex-direction: row;
-  gap: 10px;
+  #Fonctionnement h4 {
+    padding-right: 12px;
+  }
 
-  padding-bottom: 50px;
-}
+  #Restaurants {
+    padding-bottom: 50px;
+  }
 
-#Restaurants a {
-  width: 50%;
-}
+  #Restaurants a {
+    width: 50%;
+    padding-top: 30px;
+  }
 
-.bloc1, .bloc2 {
-  display: flex;
+  .bloc1,
+  .bloc2 {
+    display: flex;
+  }
+
+  #Restaurants h3 {
+    padding-left: 30px;
+    padding-bottom: 0;
+  }
 }
