@@ -252,6 +252,7 @@ body {
   font-size: x-large;
   margin-left: auto;
   margin-top: 10px;
+  border: 1px solid rgb(71, 18, 32);
 }
 
 .descrirestaurants {
@@ -285,26 +286,38 @@ footer {
 }
 
 footer a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: white;
-  margin-left: 15px;
+  margin-left: 35px;
   font-family: roboto;
   font-size: 15px;
   margin-bottom: -10px;
 }
 
-footer h3 {
-  font-family: Shrikhand;
-  color: white;
-  margin-left: 20px;
+footer i {
+  margin-right: 20px;
 }
 
-footer div {
+.propositionrestaurant h4 {
+  padding-left: 4px;
+}
+
+footer ul {
   display: flex;
+  align-items: center;
+  font-family: Shrikhand;
+  color: white;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top: -15px;
   padding-left: 5px;
   align-items: center;
-  gap: 10px;
 }
 
 /* Version tablette */
@@ -386,6 +399,9 @@ footer div {
 @media screen and (min-width: 992px) {
   /* IMPACTS A GARDER */
 
+  .logo img {
+    width: 20%;
+  }
   .geoglobal {
     display: flex;
     justify-content: center;
@@ -414,12 +430,12 @@ footer div {
     gap: 0;
     width: 90%;
     margin-left: 0px;
-    margin-bottom: 0px;
     text-decoration: none;
     background-color: rgb(249, 249, 249);
     border-radius: 15px 15px;
     position: relative;
     box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
+    border: 1px solid blue;
   }
 
   #Fonctionnement p {
@@ -431,6 +447,12 @@ footer div {
 
   #Fonctionnement i {
     padding-left: 10px;
+  }
+
+  #Fonctionnement h3,
+  #Restaurants h3 {
+    margin-left: 20px;
+    padding-bottom: 0;
   }
 
   #Fonctionnement h4 {
@@ -449,11 +471,6 @@ footer div {
   .bloc1,
   .bloc2 {
     display: flex;
-  }
-
-  #Restaurants h3 {
-    padding-left: 30px;
-    padding-bottom: 0;
   }
 }
 
@@ -514,7 +531,7 @@ nav i {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: rgb(249, 249, 249);
+  background-color: rgb(226, 224, 224);
 }
 
 #descriglobalmenu h2 {
@@ -523,22 +540,24 @@ nav i {
 
 .titrecoeur {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   font-size: large;
+  border: 1px solid red;
 }
+
 .titrecoeur h2 {
-  margin-right: 100px;
+  border: 1px solid black;
 }
 
 .titrecoeur i {
   font-size: x-large;
-  margin-right: 25px;
+  border: 1px solid blue;
 }
 
 #Entreeglobal h3,
-#Platglobal h3 {
+#Platglobal h3,
+#Dessertglobal h3 {
   font-family: Roboto;
   margin-left: 35px;
   margin-bottom: 40px;
@@ -546,7 +565,8 @@ nav i {
 }
 
 .troisentrees,
-.troisplats {
+.troisplats,
+.troisdesserts {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -557,7 +577,10 @@ nav i {
 .entree3,
 .plat1,
 .plat2,
-.plat3 {
+.plat3,
+.dessert1,
+.dessert2,
+.dessert3 {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -570,30 +593,56 @@ nav i {
 }
 
 .descrientree,
-.descriplat {
+.descriplat,
+.descridessert {
   display: flex;
   flex-direction: column;
 }
 
 .descrientree h4,
-.descriplat h4 {
+.descriplat h4,
+.descridessert h4 {
   display: flex;
   margin-bottom: 5px;
   font-size: large;
 }
 
 .descrientree p,
-.descriplat p {
+.descriplat p,
+.descridessert p {
   display: flex;
   margin-top: 0;
   color: rgb(92, 92, 92);
 }
 
-.prixentree,
-.prixplat {
+.prix {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding-bottom: 15px;
   margin-right: 30px;
+}
+
+.boutonmenu {
+  display: flex;
+  justify-content: center;
+}
+
+#descriglobalmenu button {
+  font-family: roboto;
+  font-size: medium;
+  color: white;
+  border: 1px solid transparent;
+  padding: 10px 15px;
+  margin-top: 10px;
+  margin-bottom: 55px;
+  border-radius: 20px 20px;
+  background-image: linear-gradient(
+    to top,
+    rgba(172, 85, 222, 0.9),
+    rgba(212, 46, 212, 0.9)
+  );
+  box-shadow: 2px 1px 7px 0px grey;
+  width: 150px;
+  cursor: pointer;
 }
