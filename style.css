@@ -108,6 +108,7 @@ body {
   );
   box-shadow: 2px 1px 7px 0px grey;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .exploration button:hover {
@@ -117,6 +118,7 @@ body {
     rgba(251, 158, 251, 0.9)
   );
   box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
+  transition: 250ms ease-in-out;
 }
 
 #Fonctionnement {
@@ -252,7 +254,12 @@ body {
   font-size: x-large;
   margin-left: auto;
   margin-top: 10px;
-  border: 1px solid rgb(71, 18, 32);
+}
+
+.coeur i {
+  display: flex;
+
+  border: 1px solid blue;
 }
 
 .descrirestaurants {
@@ -484,7 +491,6 @@ footer li {
   width: 100%;
   padding-bottom: 5px;
   padding-top: 20px;
-
   box-shadow: none;
 }
 
@@ -525,6 +531,7 @@ nav menu {
 nav i {
   display: flex;
   font-size: large;
+  color: black;
 }
 
 #descriglobalmenu {
@@ -532,22 +539,40 @@ nav i {
   flex-direction: column;
   justify-content: center;
   background-color: rgb(226, 224, 224);
+  margin-top: -65px;
+  position: relative;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
 
 #descriglobalmenu h2 {
   font-family: Shrikhand;
 }
 
+.globalvert {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.vert {
+  flex-wrap: nowrap;
+  width: 45px;
+  height: 3px;
+  margin-top: -10px;
+  background: aquamarine;
+}
+
 .titrecoeur {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 25px;
+  padding-right: 25px;
+  box-sizing: border-box;
   font-size: large;
-  border: 1px solid red;
-}
-
-.titrecoeur h2 {
-  border: 1px solid black;
+  border: 1px solid blue;
 }
 
 .titrecoeur i {
@@ -559,8 +584,6 @@ nav i {
 #Platglobal h3,
 #Dessertglobal h3 {
   font-family: Roboto;
-  margin-left: 35px;
-  margin-bottom: 40px;
   color: gray;
 }
 
@@ -645,4 +668,35 @@ nav i {
   box-shadow: 2px 1px 7px 0px grey;
   width: 150px;
   cursor: pointer;
+}
+
+/* css des menus version desktop */
+
+@media screen and (min-width: 992px) {
+  .logomenu img {
+    width: 20%;
+  }
+  .titrecoeur {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: auto;
+    padding-right: auto;
+    box-sizing: border-box;
+    font-size: large;
+  }
+
+  #Entreeglobal h3,
+  #Platglobal h3,
+  #Dessertglobal h3,
+  .vert {
+    font-family: Roboto;
+    padding-left: 45px;
+    color: gray;
+  }
+
+  .vert {
+    margin-left: 45px;
+    width: 5px;
+  }
 }
