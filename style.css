@@ -253,13 +253,26 @@ body {
   width: 20%;
   font-size: x-large;
   margin-left: auto;
-  margin-top: 10px;
 }
 
 .coeur i {
-  display: flex;
-
+  margin-top: -10px;
+  position: absolute;
   border: 1px solid blue;
+}
+
+.coeurplein {
+  opacity: 0;
+  background-image: linear-gradient(
+    to top,
+    rgba(172, 85, 222, 0.9),
+    rgba(212, 46, 212, 0.9)
+  );
+}
+
+.coeurvide:hover {
+  position: absolute;
+  opacity: 1;
 }
 
 .descrirestaurants {
@@ -442,7 +455,6 @@ footer li {
     border-radius: 15px 15px;
     position: relative;
     box-shadow: 5px 7px 4px 1px rgb(235, 235, 235);
-    border: 1px solid blue;
   }
 
   #Fonctionnement p {
@@ -618,23 +630,27 @@ nav i {
 .descrientree,
 .descriplat,
 .descridessert {
-  display: flex;
   flex-direction: column;
+  overflow: hidden;
+  width: 70%;
+  white-space: nowrap;
 }
 
 .descrientree h4,
 .descriplat h4,
 .descridessert h4 {
-  display: flex;
   margin-bottom: 5px;
-  font-size: large;
+  font-size: x-large;
 }
 
 .descrientree p,
 .descriplat p,
 .descridessert p {
-  display: flex;
   margin-top: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: larger;
   color: rgb(92, 92, 92);
 }
 
@@ -642,8 +658,19 @@ nav i {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding-bottom: 15px;
-  margin-right: 30px;
+  margin-right: 20px;
+}
+
+.animenu {
+  background: aqua;
+  width: 100px;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid red;
+}
+
+.animenu:hover {
+  visibility: visible;
 }
 
 .boutonmenu {
