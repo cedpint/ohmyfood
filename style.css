@@ -106,19 +106,17 @@ body {
     rgba(172, 85, 222, 0.9),
     rgba(212, 46, 212, 0.9)
   );
+  border: 0;
   box-shadow: 2px 1px 7px 0px grey;
   cursor: pointer;
-  transform: scale(1.1);
+  transition: transform 450ms, background-color 300ms;
+  transition-timing-function: ease-in-out;
+  box-shadow: 350ms;
 }
 
 .exploration button:hover {
-  background-image: linear-gradient(
-    to top,
-    rgba(219, 174, 245, 0.9),
-    rgba(251, 158, 251, 0.9)
-  );
+  opacity: 0.8;
   box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
-  transition: 250ms ease-in-out;
 }
 
 #Fonctionnement {
@@ -255,14 +253,11 @@ body {
   margin-left: auto;
 }
 
-.coeur i {
-  margin-top: -10px;
+.coeur .fa-solid {
   position: absolute;
-  border: 1px solid blue;
-}
-
-.coeurplein {
   opacity: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     to top,
     rgba(172, 85, 222, 0.9),
@@ -270,9 +265,10 @@ body {
   );
 }
 
-.coeurvide:hover {
-  position: absolute;
+.coeur .fa-solid:hover {
   opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+  transform: scale(1.1);
 }
 
 .descrirestaurants {
@@ -340,7 +336,7 @@ footer li {
   align-items: center;
 }
 
-/* Version tablette */
+/* Version tablette accueil*/
 
 @media screen and (min-width: 769px) and (max-width: 991px) {
   /* IMPACTS A GARDER */
@@ -414,7 +410,7 @@ footer li {
   }
 }
 
-/* Version desktop */
+/* Version desktop accueil */
 
 @media screen and (min-width: 992px) {
   /* IMPACTS A GARDER */
@@ -432,6 +428,13 @@ footer li {
     width: 50%;
   }
 
+  .exploration button {
+    transform: scale(1);
+  }
+
+  .exploration button:hover {
+    transform: scale(1.05);
+  }
   #Fonctionnement {
     display: flex;
     flex-direction: column;
@@ -493,7 +496,7 @@ footer li {
   }
 }
 
-/* css des menus version mobile*/
+/* version mobile menus*/
 
 .logomenu {
   display: flex;
@@ -589,7 +592,6 @@ nav i {
 
 .titrecoeur i {
   font-size: x-large;
-  border: 1px solid blue;
 }
 
 #Entreeglobal h3,
@@ -607,15 +609,9 @@ nav i {
   align-items: center;
 }
 
-.entree1,
-.entree2,
-.entree3,
-.plat1,
-.plat2,
-.plat3,
-.dessert1,
-.dessert2,
-.dessert3 {
+.entree,
+.plat,
+.dessert {
   display: flex;
   justify-content: space-between;
   background-color: white;
@@ -623,8 +619,8 @@ nav i {
   padding-left: 15px;
   font-family: roboto;
   width: 90%;
-  border: 1px solid transparent;
   border-radius: 20px 20px;
+  overflow: hidden;
 }
 
 .descrientree,
@@ -641,6 +637,9 @@ nav i {
 .descridessert h4 {
   margin-bottom: 5px;
   font-size: x-large;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .descrientree p,
@@ -658,15 +657,20 @@ nav i {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+}
+
+.prix p {
   margin-right: 20px;
 }
 
 .animenu {
   background: aqua;
-  width: 100px;
+  width: O;
   height: 100%;
   overflow: hidden;
-  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .animenu:hover {
@@ -694,7 +698,15 @@ nav i {
   );
   box-shadow: 2px 1px 7px 0px grey;
   width: 150px;
+  border: 0;
   cursor: pointer;
+  transition: transform 450ms, background-color 400ms;
+  transition-timing-function: ease-in-out;
+}
+
+#descriglobalmenu button:hover {
+  opacity: 0.8;
+  box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
 }
 
 /* css des menus version desktop */
@@ -726,4 +738,54 @@ nav i {
     margin-left: 45px;
     width: 5px;
   }
+
+  #descriglobalmenu button {
+    transform: scale(1);
+  }
+
+  #descriglobalmenu button:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* ANIMATIONS */
+
+/* Animation apparition progressive des menus*/
+@keyframes progression {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.troisentrees {
+  animation: progression 1s ease-in-out;
+}
+
+.troisplats {
+  animation: progression 1.5s ease-in-out;
+}
+
+.troisdesserts {
+  animation: progression 2s ease-in-out;
+}
+
+/* Animation déroulant prix*/
+@keyframes deroulant {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100px;
+  }
+}
+
+.entree:hover .animenu,
+.plat:hover .animenu,
+.dessert:hover .animenu {
+  animation: deroulant 0.2s forwards;
 }
