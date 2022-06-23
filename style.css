@@ -4,33 +4,33 @@
 body {
   margin: 0;
 }
-
+/*  
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  background-color: withe;
+  background: white;
   height: 100vh;
   inset: 0;
   z-index: 2;
   opacity: 0.95;
-  animation: loader 2.5s;
   animation-fill-mode: forwards;
   font-family: Shrikhand;
   transform-origin: top 10px;
+  font-size: 20px;
+}
+.loader p {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     to top,
     rgba(172, 85, 222, 0.9),
     rgba(212, 46, 212, 0.9)
   );
-  font-size: 100px;
-  color: white;
+  animation: rotation 2s;
 }
-.loader p {
-  animation: rotation 1s;
-}
-
+*/
 .nav {
   display: flex;
   justify-content: center;
