@@ -4,6 +4,33 @@
 body {
   margin: 0;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: withe;
+  height: 100vh;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.95;
+  animation: loader 2.5s;
+  animation-fill-mode: forwards;
+  font-family: Shrikhand;
+  transform-origin: top 10px;
+  background-image: linear-gradient(
+    to top,
+    rgba(172, 85, 222, 0.9),
+    rgba(212, 46, 212, 0.9)
+  );
+  font-size: 100px;
+  color: white;
+}
+.loader p {
+  animation: rotation 1s;
+}
+
 .nav {
   display: flex;
   justify-content: center;
@@ -587,7 +614,6 @@ nav i {
   padding-right: 25px;
   box-sizing: border-box;
   font-size: large;
-  border: 1px solid blue;
 }
 
 .titrecoeur i {
@@ -664,13 +690,19 @@ nav i {
 }
 
 .animenu {
-  background: aqua;
-  width: O;
+  background: aquamarine;
+  width: 0px;
   height: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.animenu i {
+  font-size: 30px;
+  color: white;
+  opacity: 0;
 }
 
 .animenu:hover {
@@ -716,13 +748,11 @@ nav i {
     width: 20%;
   }
   .titrecoeur {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-left: auto;
-    padding-right: auto;
-    box-sizing: border-box;
-    font-size: large;
+    padding-left: 65px;
+  }
+
+  .titrecoeur i {
+    margin-left: 100px;
   }
 
   #Entreeglobal h3,
@@ -788,4 +818,32 @@ nav i {
 .plat:hover .animenu,
 .dessert:hover .animenu {
   animation: deroulant 0.2s forwards;
+}
+
+@keyframes rotation {
+  from {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+.entree:hover .animenu i,
+.plat:hover .animenu i,
+.dessert:hover .animenu i {
+  animation: rotation 0.2s forwards;
+}
+
+/* Animation loader*/
+
+@keyframes loader {
+  from {
+    transform: scale (1);
+  }
+
+  to {
+    transform: scale(0);
+  }
 }
