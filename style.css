@@ -4,23 +4,26 @@
 body {
   margin: 0;
 }
-/*  
+
 .loader {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
+  width: auto;
   background: white;
   height: 100vh;
   inset: 0;
   z-index: 2;
   opacity: 0.95;
-  animation-fill-mode: forwards;
-  font-family: Shrikhand;
   transform-origin: top 10px;
-  font-size: 20px;
+  animation: loader 0.2s forwards;
+  animation-delay: 2s;
 }
+
 .loader p {
+  font-family: Shrikhand;
+  font-size: xx-large;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
@@ -30,7 +33,7 @@ body {
   );
   animation: rotation 2s;
 }
-*/
+
 .nav {
   display: flex;
   justify-content: center;
@@ -256,7 +259,7 @@ body {
   top: 20px;
   right: 20px;
   color: rgb(74, 175, 148);
-  background: rgb(195, 244, 231);
+  background: #99e2d0;
   font-family: roboto;
   padding: 5px 10px;
   border-radius: 2px 2px;
@@ -295,7 +298,6 @@ body {
 .coeur .fa-solid:hover {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
-  transform: scale(1.1);
 }
 
 .descrirestaurants {
@@ -307,16 +309,17 @@ body {
 #Restaurants p {
   margin-left: 15px;
 }
+
 #Restaurants h4 {
   font-family: roboto;
-  font-size: 15px;
+  font-size: 20px;
   margin-bottom: -10px;
 }
 
 #Restaurants p {
   display: flex;
   font-family: roboto;
-  font-size: 13px;
+  font-size: 15px;
   color: gray;
 }
 
@@ -326,6 +329,19 @@ footer {
   background-color: rgb(53, 51, 51);
   padding-top: 10px;
   padding-bottom: 20px;
+}
+
+footer span {
+  display: flex;
+  font-family: Shrikhand;
+  font-size: 20px;
+  color: white;
+  padding-top: 20px;
+  padding-left: 35px;
+}
+
+footer ul {
+  padding: 0px;
 }
 
 footer a {
@@ -347,19 +363,11 @@ footer i {
   padding-left: 4px;
 }
 
-footer ul {
-  display: flex;
-  align-items: center;
-  font-family: Shrikhand;
-  color: white;
-}
-
 footer li {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: -15px;
-  padding-left: 5px;
   align-items: center;
 }
 
@@ -435,13 +443,14 @@ footer li {
   .bloc2 {
     display: flex;
   }
+
+  footer {
+    border: 1px solid green;
+  }
 }
 
 /* Version desktop accueil */
-
 @media screen and (min-width: 992px) {
-  /* IMPACTS A GARDER */
-
   .logo img {
     width: 20%;
   }
@@ -521,9 +530,14 @@ footer li {
   .bloc2 {
     display: flex;
   }
+  footer {
+    display: flex;
+    flex-direction: row;
+  }
+  }
 }
 
-/* version mobile menus*/
+/* MENUS VERSION MOBILE*/
 
 .logomenu {
   display: flex;
@@ -594,7 +608,7 @@ nav i {
 .globalvert {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 15px;
 }
 
@@ -603,7 +617,7 @@ nav i {
   width: 45px;
   height: 3px;
   margin-top: -10px;
-  background: aquamarine;
+  background: #99e2d0;
 }
 
 .titrecoeur {
@@ -616,13 +630,26 @@ nav i {
   font-size: large;
 }
 
+.titrecoeur h2 {
+  margin-left: 10px;
+}
+
 .titrecoeur i {
   font-size: x-large;
 }
 
-#Entreeglobal h3,
-#Platglobal h3,
-#Dessertglobal h3 {
+.entreesglobal,
+.platsglobal,
+.dessertsglobal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.troisentrees h3,
+.troisplats h3,
+.troisdesserts h3 {
   font-family: Roboto;
   color: gray;
 }
@@ -632,7 +659,6 @@ nav i {
 .troisdesserts {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .entree,
@@ -641,6 +667,7 @@ nav i {
   display: flex;
   justify-content: space-between;
   background-color: white;
+  cursor: pointer;
   margin-bottom: 15px;
   padding-left: 15px;
   font-family: roboto;
@@ -662,7 +689,7 @@ nav i {
 .descriplat h4,
 .descridessert h4 {
   margin-bottom: 5px;
-  font-size: x-large;
+  font-size: 25px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -675,7 +702,7 @@ nav i {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-size: larger;
+  font-size: large;
   color: rgb(92, 92, 92);
 }
 
@@ -690,13 +717,14 @@ nav i {
 }
 
 .animenu {
-  background: aquamarine;
+  background: #99e2d0;
   width: 0px;
   height: 100%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: width 0.2s ease-in-out;
 }
 
 .animenu i {
@@ -741,9 +769,22 @@ nav i {
   box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
 }
 
-/* css des menus version desktop */
 
+
+/* css des menus version tablette */
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .titrecoeur h2 {
+    margin-left: 20px;
+  }
+
+  .globalvert {
+    margin-left: 40px;
+  }
+}
+
+/* css des menus version desktop */
 @media screen and (min-width: 992px) {
+  
   .logomenu img {
     width: 20%;
   }
@@ -755,26 +796,70 @@ nav i {
     margin-left: 100px;
   }
 
-  #Entreeglobal h3,
-  #Platglobal h3,
-  #Dessertglobal h3,
+  #descriglobalmenu {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+  #Paletteglobal {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .globalvert {
+    margin-left: 0;
+  }
+
+  .troisentrees h3,
+  .troisplats h3,
+  .troisdesserts h3,
   .vert {
     font-family: Roboto;
-    padding-left: 45px;
+    padding-left: 20px;
+    font-size: 18px;
     color: gray;
   }
 
   .vert {
-    margin-left: 45px;
-    width: 5px;
+    margin-left: 20px;
+    width: 15px;
   }
 
   #descriglobalmenu button {
     transform: scale(1);
   }
+  .troisentrees,
+  .troisplats,
+  .troisdesserts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descrientree h4,
+  .descriplat h4,
+  .descridessert h4 {
+    font-size: 19px;
+  }
+
+  .descrientree p,
+  .descriplat p,
+  .descridessert p {
+    font-size: 15px;
+  }
 
   #descriglobalmenu button:hover {
     transform: scale(1.05);
+  }
+
+  .boutonmenu {
+    display: flex;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -817,7 +902,7 @@ nav i {
 .entree:hover .animenu,
 .plat:hover .animenu,
 .dessert:hover .animenu {
-  animation: deroulant 0.2s forwards;
+  width: 100px;
 }
 
 @keyframes rotation {
@@ -840,10 +925,11 @@ nav i {
 
 @keyframes loader {
   from {
-    transform: scale (1);
+    opacity: 0.95;
   }
 
   to {
-    transform: scale(0);
+    opacity: 0;
+    visibility: hidden;
   }
 }
