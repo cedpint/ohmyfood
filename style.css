@@ -16,7 +16,7 @@ body {
   inset: 0;
   z-index: 2;
   opacity: 0.95;
-  transform-origin: top 10px;
+  transform-origin: top;
   animation: loader 0.2s forwards;
   animation-delay: 2s;
 }
@@ -25,6 +25,7 @@ body {
   font-family: Shrikhand;
   font-size: xx-large;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     to top,
@@ -47,7 +48,7 @@ body {
   padding-bottom: 5px;
   padding-top: 15px;
   margin-bottom: 4px;
-  box-shadow: 0px 4px 0px 0px rgb(216, 216, 216);
+  box-shadow: 0px 4px 5px 0px rgb(216, 216, 216);
 }
 
 .logo img {
@@ -141,7 +142,6 @@ body {
   cursor: pointer;
   transition: transform 450ms, background-color 300ms;
   transition-timing-function: ease-in-out;
-  box-shadow: 350ms;
 }
 
 .exploration button:hover {
@@ -152,9 +152,11 @@ body {
 #Fonctionnement {
   padding-bottom: 30px;
 }
+
 #Fonctionnement h3 {
   display: flex;
   font-family: roboto;
+  font-size: 20px;
   padding-top: 25px;
   padding-bottom: 10px;
   padding-left: 20px;
@@ -225,6 +227,7 @@ body {
   display: flex;
   flex-direction: row;
   font-family: roboto;
+  font-size: 20px;
   padding-top: 25px;
   padding-bottom: 10px;
   padding-left: 25px;
@@ -287,6 +290,7 @@ body {
   position: absolute;
   opacity: 0;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(
     to top,
@@ -372,10 +376,7 @@ footer li {
 }
 
 /* Version tablette accueil*/
-
 @media screen and (min-width: 769px) and (max-width: 991px) {
-  /* IMPACTS A GARDER */
-
   /* Centrage bloc geolocalisation */
   .geoglobal {
     display: flex;
@@ -511,6 +512,11 @@ footer li {
   #Restaurants h3 {
     margin-left: 20px;
     padding-bottom: 0;
+    font-size: 23px;
+  }
+
+  #Fonctionnement h3 {
+    padding-bottom: 20px;
   }
 
   #Fonctionnement h4 {
@@ -534,20 +540,21 @@ footer li {
     display: flex;
     flex-direction: row;
   }
-  }
 }
 
-/* MENUS VERSION MOBILE*/
+/* MENUS VERSION MOBILE */
 
 .logomenu {
-  display: flex;
+  display: inline-block;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 100%;
-  padding-bottom: 5px;
   padding-top: 20px;
+  padding-bottom: 15px;
   box-shadow: none;
+  position: relative; /* Permet d'ajuster la flèche (i)*/
 }
 
 .logomenu img {
@@ -557,36 +564,25 @@ footer li {
 .photomenu img {
   display: flex;
   object-fit: cover;
-  margin-top: 20px;
   height: 300px;
   width: 100%;
 }
-nav menu {
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  position: relative;
-}
-nav button {
+
+.logomenu a {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   position: absolute;
   display: flex;
-  margin-top: 25px;
-  margin-left: 40px;
+  left: 40px;
+  top: 40%;
+  text-decoration: none;
   background-color: white;
   border: none;
 }
 
-nav menu {
-  display: flex;
-  height: 50px;
-}
-
-nav i {
-  display: flex;
-  font-size: large;
+.logomenu i {
+  font-size: 20px;
   color: black;
 }
 
@@ -689,7 +685,8 @@ nav i {
 .descriplat h4,
 .descridessert h4 {
   margin-bottom: 5px;
-  font-size: 25px;
+  margin-top: 17px;
+  font-size: 20px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -702,7 +699,7 @@ nav i {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-size: large;
+  font-size: 16px;
   color: rgb(92, 92, 92);
 }
 
@@ -769,12 +766,14 @@ nav i {
   box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
 }
 
-
-
 /* css des menus version tablette */
 @media screen and (min-width: 769px) and (max-width: 991px) {
   .titrecoeur h2 {
     margin-left: 20px;
+  }
+
+  .logomenu img {
+    width: 30%;
   }
 
   .globalvert {
@@ -784,7 +783,6 @@ nav i {
 
 /* css des menus version desktop */
 @media screen and (min-width: 992px) {
-  
   .logomenu img {
     width: 20%;
   }
@@ -799,7 +797,7 @@ nav i {
   #descriglobalmenu {
     padding-left: 10px;
     padding-right: 10px;
-}
+  }
 
   #Paletteglobal {
     display: flex;
