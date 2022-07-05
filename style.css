@@ -9,16 +9,28 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: fixed; /* Permet de rester figé même si on scroll + z-index*/
   width: auto;
+  height: 100vh; /* Tout l'écran (Viewport Height 100%)*/
+  inset: 0; /* Position (équivalent de top, right, bottom et left*/
+  z-index: 2; /* Permet de recouvrir les éléments en dessous*/
   background: white;
-  height: 100vh;
-  inset: 0;
-  z-index: 2;
   opacity: 0.95;
-  transform-origin: top;
-  animation: loader 0.2s forwards;
-  animation-delay: 2s;
+  animation: opacity 0.2s forwards /* Equivalent à "animation-fill-mode*/; /* Lié au keyframe "opacity" + durée + élément dans sont état final */
+  transform-origin: top; /* Point de repère d'origine en haut*/
+  animation-delay: 2s; /* S'arrête au bout de 2 secondes*/
+}
+
+/* ANIMATION DU FOND DU LOADER OPACITÉ*/
+@keyframes opacity {
+  from {
+    opacity: 0.95; /* Permet de passer d'une apparition à une disparition totale*/
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden; /* Permet de disparaitre et d'accéder aux éléments du site*/
+  }
 }
 
 .loader p {
@@ -27,12 +39,25 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  padding: 1em;
   background-image: linear-gradient(
     to top,
     rgba(172, 85, 222, 0.9),
     rgba(212, 46, 212, 0.9)
   );
-  animation: rotation 2s;
+  animation: rotation 2s; /* Lié au keyframe "rotation" + durée  */
+}
+
+/* ANIMATION DU LOGO DU LOADER OPACITÉ+ROTATION*/
+@keyframes rotation {
+  from {
+    opacity: 0; /* Permet de passer d'une légère opacité à une apparition totale*/
+    transform: rotate(0deg); /* Permet de faire un tour complet*/
+  }
+  to {
+    opacity: 1;
+    transform: rotate(360deg);
+  }
 }
 
 .nav {
@@ -140,10 +165,11 @@ body {
   border: 0;
   box-shadow: 2px 1px 7px 0px grey;
   cursor: pointer;
-  transition: transform 450ms, background-color 300ms;
-  transition-timing-function: ease-in-out;
+  transition: transform 450ms, background-color 300ms; /* Lié au hover, déclenche une légère opacité */
+  transition-timing-function: ease-in-out; /*Accélération et de décélérationsubtile*/
 }
 
+/* Opacité du bouton au survol*/
 .exploration button:hover {
   opacity: 0.8;
   box-shadow: 2px 1px 7px 0px rgb(28, 27, 27);
@@ -287,8 +313,9 @@ body {
 }
 
 .coeur .fa-solid {
+  /* Permet de remplir le coeur grace à la transition du hover*/
   position: absolute;
-  opacity: 0;
+  opacity: 0; /* Caché et apparait en 1 dans le hover */
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -299,6 +326,7 @@ body {
   );
 }
 
+/* Transition coeur se remplissant */
 .coeur .fa-solid:hover {
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
@@ -696,8 +724,8 @@ footer li {
 .descriplat p,
 .descridessert p {
   margin-top: 0;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  text-overflow: ellipsis; /* Permet d'indiqué que le texte est "rogné" en ajoutant 3 petits points"*/
+  overflow: hidden; /* Le dépassement est "rogné"*/
   white-space: nowrap;
   font-size: 16px;
   color: rgb(92, 92, 92);
@@ -713,9 +741,35 @@ footer li {
   margin-right: 20px;
 }
 
+/* Animation apparition progressive des menus*/
+@keyframes progression {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.troisentrees {
+  /* Progression décalée afin qu'ils apparaissent les uns après les autres*/
+  animation: progression 1s ease-in-out;
+}
+
+.troisplats {
+  animation: progression 1.5s ease-in-out;
+}
+
+.troisdesserts {
+  animation: progression 2s ease-in-out;
+}
+
+/* PRIX DEROULANT */
 .animenu {
+  /* Création d'une div contenant l'icone coche qui déroule grâce à l'animation "deroulant"*/
   background: #99e2d0;
-  width: 0px;
+  width: 0px; /* permet dêtre cachée et apparait grâce à la transition "width" */
   height: 100%;
   overflow: hidden;
   display: flex;
@@ -731,7 +785,30 @@ footer li {
 }
 
 .animenu:hover {
-  visibility: visible;
+  visibility: visible; /* Caché et apparition au survol grâce à la visibility du hover */
+}
+
+/* Animation déroulant prix*/
+@keyframes deroulant {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100px;
+  }
+}
+
+.entree:hover .animenu,
+.plat:hover .animenu,
+.dessert:hover .animenu {
+  width: 100px;
+}
+
+.entree:hover .animenu i,
+.plat:hover .animenu i,
+.dessert:hover .animenu i {
+  animation: rotation 0.3s forwards; /* Animation identique à celle du loader légèrement plus lente */
 }
 
 .boutonmenu {
@@ -831,7 +908,7 @@ footer li {
   .troisentrees,
   .troisplats,
   .troisdesserts {
-    width: 100%;
+    width: 33.33%;
     display: flex;
     flex-direction: column;
   }
@@ -858,76 +935,5 @@ footer li {
   footer {
     display: flex;
     flex-direction: column;
-  }
-}
-
-/* ANIMATIONS */
-
-/* Animation apparition progressive des menus*/
-@keyframes progression {
-  0% {
-    transform: scale(0);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
-.troisentrees {
-  animation: progression 1s ease-in-out;
-}
-
-.troisplats {
-  animation: progression 1.5s ease-in-out;
-}
-
-.troisdesserts {
-  animation: progression 2s ease-in-out;
-}
-
-/* Animation déroulant prix*/
-@keyframes deroulant {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 100px;
-  }
-}
-
-.entree:hover .animenu,
-.plat:hover .animenu,
-.dessert:hover .animenu {
-  width: 100px;
-}
-
-@keyframes rotation {
-  from {
-    opacity: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(360deg);
-  }
-}
-.entree:hover .animenu i,
-.plat:hover .animenu i,
-.dessert:hover .animenu i {
-  animation: rotation 0.2s forwards;
-}
-
-/* Animation loader*/
-
-@keyframes loader {
-  from {
-    opacity: 0.95;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
   }
 }
